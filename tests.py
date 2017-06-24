@@ -1,18 +1,18 @@
 import unittest
-from app import fatorial
+from app import meu_web_app
 
 
-class TestFatorial(unittest.TestCase):
+class TestHome(unittest.TestCase):
 
-    def test_fatorial(self):
-        self.assertEqual(fatorial(0), 1)
-        self.assertEqual(fatorial(1), 1)
-        self.assertEqual(fatorial(2), 2)
-        self.assertEqual(fatorial(3), 6)
-        self.assertEqual(fatorial(4), 24)
-        self.assertEqual(fatorial(5), 120)
-        self.assertEqual(fatorial(6), 720)
+    def test_get(self):
+        app = meu_web_app.test_client()
+        response = app.get('/')
+        self.assertEqual(200, response.status_code)
 
+    def test_content_type(self):
+        app = meu_web_app.test_client()
+        response = app.get('/')
+        self.assertIn('text/html', response.content_type)
 
 if __name__ == '__main__':
     unittest.main()
