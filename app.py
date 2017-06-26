@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 
 meu_web_app = Flask('meu_web_app')
@@ -6,7 +6,7 @@ meu_web_app = Flask('meu_web_app')
 
 @meu_web_app.route('/')
 def pagina_inicial():
-    return 'Danilo Cyrino Maia'
+    return render_template('home.html')
 
 
 if __name__ == "__main__":
