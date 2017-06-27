@@ -6,7 +6,7 @@ class TestHome(unittest.TestCase):
 
     def setUp(self):
         app = meu_web_app.test_client()
-        self.response = app.get('/')
+        self.response = app.get('/dcymaia')
 
     def test_get(self):
         self.assertEqual(200, self.response.status_code)
